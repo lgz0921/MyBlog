@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lgz.dao.BlogMapper">
+
+    <select id="queryBlog" resultType="Blog">
+        select * from db_blog.t_blog;
+    </select>
+
+    <!--增加博客-->
+    <insert id="insertBlog" parameterType="Blog">
+        insert into db_blog.t_blog(title, summary, releaseDate, clickHit, replyHit, content, typeId, keyWord)
+        values (#{title},#{summary},#{releaseDate},#{clickHit},#{replyHit},#{content},#{typeId},#{keyWord});
+    </insert>
+
+    <!--    通过标题查询-->
+    <select id="queryBlogByTitle" resultType="Blog">
+        select * from db_blog.t_blog where title=#{title};
+    </select>
+
+    <!--    通过ID查询-->
+    <select id="queryBlogByID" resultType="Blog">
+        select * from db_blog.t_blog where id=#{id};
+    </select>
+
+<!--    更新博客 问题：keyWord不能修改-->
+    <update id="updateBlog" parameterType="Blog">
+       update db_blog.t_blog set title=#{title},summary=#{summary},
+       releaseDate=#{releaseDate},content=#{content},typeId=#{typeId}
+       where id=#{id};
+    </update>
+
+
+<!--    删除博客-->
+    <delete id="deleteBlog" parameterType="int">
+        delete from db_blog.t_blog where id=#{id};
+    </delete>
+
+
+</mapper>

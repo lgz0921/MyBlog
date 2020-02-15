@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lgz.dao.BloggerMapper">
+
+<!--    修改用户名密码-->
+    <update id="updateBlogger" parameterType="Blogger">
+       update db_blog.t_blogger set  userName=#{userName},password=#{password}
+       where id=#{id};
+    </update>
+
+<!--修改个人信息-->
+    <update id="updateBlogger2" parameterType="Blogger">
+       update db_blog.t_blogger set  profile=#{profile},nickName=#{nickName},sign=#{sign}
+       where id=#{id};
+    </update>
+
+    <select id="queryBlogger" resultType="Blogger">
+        select * from db_blog.t_blogger;
+    </select>
+
+</mapper>

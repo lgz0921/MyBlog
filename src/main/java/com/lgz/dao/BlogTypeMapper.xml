@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lgz.dao.BlogTypeMapper">
+
+    <!--    查询-->
+    <select id="queryAllBlogType" resultType="BlogType">
+        select * from db_blog.t_blogtype;
+    </select>
+
+    <!--增加-->
+    <insert id="addBlogType" parameterType="BlogType">
+       insert into db_blog.t_blogtype (typeName, orderNo) values (#{typeName},#{orderNo});
+    </insert>
+
+
+    <!--    更新-->
+    <update id="updateBlogType" parameterType="BlogType">
+       update db_blog.t_blogtype set typeName=#{typeName} ,orderNo=#{orderNo} where id=#{id};
+    </update>
+
+
+    <!--    删除-->
+    <delete id="deleteBlogType" parameterType="int">
+        delete from db_blog.t_blogtype where id=#{id};
+    </delete>
+
+    <select id="queryBlogTypeByID" resultType="BlogType">
+        select * from db_blog.t_blogtype where id=#{id};
+    </select>
+
+
+</mapper>

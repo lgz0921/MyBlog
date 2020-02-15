@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lgz.dao.CommentMapper">
+
+    <!--    查询-->
+    <select id="queryAllComment" resultType="Comment">
+        select * from db_blog.t_comment;
+    </select>
+
+
+    <!--    删除-->
+    <delete id="deleteComment" parameterType="int">
+        delete from db_blog.t_comment where id=#{id};
+    </delete>
+
+    <select id="queryCommentByName" resultType="Comment">
+        select * from db_blog.t_comment where userIp=#{userIp};
+    </select>
+
+    <select id="queryCommentByID" resultType="Comment">
+        select * from db_blog.t_comment where blogId=#{blogId};
+    </select>
+
+
+</mapper>

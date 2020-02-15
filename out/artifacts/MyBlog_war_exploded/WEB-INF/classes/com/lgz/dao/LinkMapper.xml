@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lgz.dao.LinkMapper">
+
+<!--    查询-->
+    <select id="queryAllLink" resultType="Link">
+        select * from db_blog.t_link;
+    </select>
+
+    <!--增加友情链接-->
+    <insert id="addLink" parameterType="Link">
+       insert into db_blog.t_link (linkName, linkUrl, orderNo) values (#{linkName},#{linkUrl},#{orderNo});
+    </insert>
+
+
+    <!--    更新友情链接-->
+    <update id="updateLink" parameterType="Link">
+       update db_blog.t_link set linkName=#{linkName} ,linkUrl=#{linkUrl} where id=#{id};
+    </update>
+
+
+    <!--    删除友情链接-->
+    <delete id="deleteLink" parameterType="int">
+        delete from db_blog.t_link where id=#{id};
+    </delete>
+
+    <select id="queryLinkByName" resultType="Link">
+        select * from db_blog.t_link where linkName=#{linkName};
+    </select>
+
+    <select id="queryLinkByID" resultType="Link">
+        select * from db_blog.t_link where id=#{id};
+    </select>
+
+
+</mapper>

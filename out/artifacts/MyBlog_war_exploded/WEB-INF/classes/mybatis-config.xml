@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <typeAliases>
+        <package name="com.lgz.pojo"/>
+    </typeAliases>
+
+
+    <mappers>
+        <mapper class="com.lgz.dao.LoginMapper"/>
+        <mapper class="com.lgz.dao.BloggerMapper"/>
+        <mapper class="com.lgz.dao.BlogMapper"/>
+        <mapper class="com.lgz.dao.LinkMapper"/>
+        <mapper class="com.lgz.dao.CommentMapper"/>
+        <mapper class="com.lgz.dao.BlogTypeMapper"/>
+    </mappers>
+</configuration>
